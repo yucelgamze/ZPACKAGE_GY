@@ -1,0 +1,34 @@
+projection;
+strict ( 1 );
+use draft;
+
+define behavior for zstudent_hdr_gy_p alias Student
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  use action statusUpdate;
+
+  use association _Attachments { create; with draft; }
+
+  //  factory action projection behavior'a ekleniyor
+  use action copyStudent;
+
+  //  static factory action projection behavior'a ekleniyor:
+  use action createInstance;
+}
+
+define behavior for zstudent_att_gy_p //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _Student { with draft; }
+}

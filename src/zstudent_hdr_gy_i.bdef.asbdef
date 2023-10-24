@@ -1,0 +1,73 @@
+managed implementation in class zbp_student_hdr_gy_i unique;
+strict ( 1 );
+
+// odta v4 için draft capability eklenmeli
+with draft;
+
+define behavior for zstudent_hdr_gy_i alias Student //alias <alias_name>
+persistent table zstudent_hdr_gy
+draft table zstudent_hdrgy_d
+lock master
+total etag Locallastchangedat
+authorization master ( global )
+etag master Lastchangedat
+{
+  create;
+  update;
+  delete;
+  association _Attachments { create; with draft; }
+
+  field ( numbering : managed, readonly ) Id;
+
+  action statusUpdate;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  //kopyalamak için factory action eklenmesi:
+  factory action copyStudent [1];
+
+  //static factory action aklenmesi:
+  static factory action createInstance [1];
+
+  mapping for zstudent_hdr_gy
+    {
+      Id                 = id;
+      Firstname          = firstname;
+      Lastname           = lastname;
+      Age                = age;
+      Course             = course;
+      Courseduration     = courseduration;
+      Dob                = dob;
+      Gender             = gender;
+      Lastchangedat      = lastchangedat;
+      Locallastchangedat = locallastchangedat;
+      Status             = status;
+    }
+}
+
+define behavior for Zstudent_Att_Gy_I alias Attachments //alias <alias_name>
+persistent table zstudent_att_gy
+draft table zstudent_attgy_d
+lock dependent by _Student
+authorization dependent by _Student
+etag master LastChangedat
+{
+  update;
+  delete;
+  field ( readonly ) Id;
+  association _Student { with draft; }
+
+  mapping for zstudent_att_gy
+    {
+      AttachId   = attach_id;
+      Attachment = attachemnt;
+      Comments   = comments;
+      Filename   = filename;
+      Id         = id;
+      Mimetype   = mimetype;
+    }
+}

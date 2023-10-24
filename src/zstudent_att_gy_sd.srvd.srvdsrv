@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for ZSTUDENT_ATT_GY_P'
+define service ZSTUDENT_ATT_GY_SD {
+  expose zstudent_att_gy_p;
+  expose zstudent_hdr_gy_p;
+}

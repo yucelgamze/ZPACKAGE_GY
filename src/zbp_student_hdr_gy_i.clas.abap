@@ -1,0 +1,5 @@
+CLASS zbp_student_hdr_gy_i DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zstudent_hdr_gy_i.
+ENDCLASS.
+
+CLASS zbp_student_hdr_gy_i IMPLEMENTATION.
+ENDCLASS.
