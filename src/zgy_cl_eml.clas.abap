@@ -13,7 +13,9 @@ ENDCLASS.
 
 
 
-CLASS zgy_cl_eml IMPLEMENTATION.
+CLASS ZGY_CL_EML IMPLEMENTATION.
+
+
   METHOD if_oo_adt_classrun~main.
 
     DATA: it_student_create TYPE TABLE FOR CREATE zstudent_hdr_gy_i,
@@ -233,5 +235,4 @@ CLASS zgy_cl_eml IMPLEMENTATION.
 *    ENDCASE.
 
   ENDMETHOD.
-
 ENDCLASS.

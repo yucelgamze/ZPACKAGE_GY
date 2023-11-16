@@ -11,7 +11,9 @@ ENDCLASS.
 
 
 
-CLASS z_class_gy IMPLEMENTATION.
+CLASS Z_CLASS_GY IMPLEMENTATION.
+
+
   METHOD if_oo_adt_classrun~main.
     out->write( 'Hello world!' ).
   ENDMETHOD.

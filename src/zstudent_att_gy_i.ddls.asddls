@@ -20,7 +20,7 @@ on $projection.Id = _Student.Id
 //        eğer #inline dersek tarayıcıda açıyor annotation'a eşlersek indiriyor
     }
     
-    zstudent_att_gy.attachemnt as Attachment,
+    zstudent_att_gy.attachment as Attachment,
     @EndUserText.label: 'File Type'
     zstudent_att_gy.mimetype as Mimetype,
     @EndUserText.label: 'File Name'

@@ -64,7 +64,7 @@ etag master LastChangedat
   mapping for zstudent_att_gy
     {
       AttachId   = attach_id;
-      Attachment = attachemnt;
+      Attachment = attachment;
       Comments   = comments;
       Filename   = filename;
       Id         = id;
